@@ -1,0 +1,319 @@
+/* ============================================================
+   BordaFamily — Estilos de la página de inicio
+   Diseño oscuro con acentos en azul claro (—gold)
+   ============================================================ */
+
+/* ---- Fuentes (Google Fonts) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+/* ---- Variables de color ---- */
+:root {
+  --gold: #38bdf8;
+  --gold-light: #7dd3fc;
+  --gold-dim: rgba(56,189,248,0.15);
+  --cream: #f0ece4;
+  --ink: #0b1425;
+  --ink-mid: #111d35;
+  --ink-soft: #1a2a4a;
+  --stone: #6a7a94;
+  --stone-light: #9aadc9;
+}
+
+/* ---- Reset ---- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ---- Tipografía ---- */
+.serif { font-family: 'Playfair Display', serif; }
+body { font-family: 'Outfit', sans-serif; }
+
+.gold-text { color: var(--gold); }
+.cream-text { color: var(--cream); }
+.stone-text { color: var(--stone-light); }
+
+/* ---- Barra de navegación ---- */
+.nav-glass {
+  background: rgba(11,20,37,0.5);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(59,130,246,0.1);
+  transition: all 0.5s ease;
+}
+.nav-scrolled {
+  background: rgba(11,20,37,0.92);
+  border-bottom: 1px solid rgba(59,130,246,0.2);
+}
+
+/* ---- Hero ---- */
+.hero-img-zoom {
+  animation: heroZoom 25s ease-out forwards;
+}
+.hero-section { align-items: flex-end; }
+@keyframes heroZoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.line-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.line-reveal.visible {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* ---- Línea decorativa dorada ---- */
+.gold-line {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+}
+.visible .gold-line { width: 100px; }
+
+/* ---- Tarjetas de producto ---- */
+.product-card {
+  background: var(--ink-mid);
+  border: 1px solid rgba(56,189,248,0.08);
+  overflow: hidden;
+  transition: border-color 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
+}
+.product-card:hover {
+  border-color: rgba(56,189,248,0.3);
+  transform: translateY(-4px);
+}
+.product-card .img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.product-card img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.product-card:hover img {
+  transform: scale(1.06);
+}
+.product-card .overlay-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 4px 10px;
+}
+
+/* ---- Marquee / cinta de servicios ---- */
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 22s linear infinite;
+  width: max-content;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---- Catálogo tipo masonry ---- */
+.catalog-item {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.catalog-item img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  width: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  filter: contrast(1.06) saturate(1.08);
+}
+.catalog-item:hover img { transform: scale(1.07); }
+.catalog-item .cap {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+.catalog-item:hover .cap { opacity: 1; }
+
+/* ---- Botones ---- */
+.btn-gold {
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: scale(1.02);
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(56,189,248,0.4);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  transform: scale(1.02);
+}
+
+/* ---- Botón flotante de WhatsApp ---- */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 100;
+  background: #25d366;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(37,211,102,0.6);
+}
+
+/* ---- Menú móvil ---- */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--ink);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-menu.open { transform: translateX(0); }
+
+/* ---- Barra de progreso de scroll ---- */
+.scroll-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), #e8a87c);
+  z-index: 999;
+  transition: width 0.1s linear;
+}
+
+/* ============================================================
+   MEDIA QUERIES
+   ============================================================ */
+
+/* ---- 1180 px ---- */
+@media (max-width: 1180px) {
+  .hero-product-panel > div { width: 100% !important; }
+  .hero-product-panel .hero-mini-photo { height: 120px !important; }
+}
+
+/* ---- 1024 px ---- */
+@media (max-width: 1024px) {
+  .hero-content { padding-bottom: 60px !important; }
+  .marquee-wrap { top: 80px !important; }
+  .hero-product-panel > div { width: 100% !important; }
+  .hero-product-panel .hero-mini-photo { height: 100px !important; }
+}
+
+/* ---- 900 px ---- */
+@media (max-width: 900px) {
+  .hidden-mobile { display: none !important; }
+  .show-mobile { display: flex !important; }
+}
+@media (min-width: 901px) {
+  .show-mobile { display: none !important; }
+}
+
+/* ---- 768 px ---- */
+@media (max-width: 768px) {
+  .hero-text-block { margin-left: 0 !important; margin-top: 0 !important; }
+  .hero-stats { gap: 20px !important; }
+  .hero-product-panel > div { width: 100% !important; max-width: 100% !important; padding: 12px !important; border-radius: 12px !important; }
+  .hero-product-panel > div > div:first-child { grid-template-columns: repeat(3, 1fr) !important; gap: 6px !important; }
+  .hero-product-panel .hero-mini-photo { height: 70px !important; border-radius: 6px !important; }
+  .hero-overlay-dark { opacity: 0.25 !important; }
+  .hero-overlay-top { opacity: 0.15 !important; }
+  .hero-bg-img { object-position: 30% center !important; }
+  .services-grid { grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+  .products-header { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; }
+  .products-grid { grid-template-columns: 1fr !important; }
+  .stats-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+  .stats-divider { display: none !important; }
+  .catalog-header { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .catalog-masonry { columns: 2 160px !important; gap: 8px !important; }
+  .catalog-masonry > div { margin-bottom: 8px !important; }
+  .catalog-masonry img { min-height: 200px !important; }
+  .contact-section .contact-layout { grid-template-columns: 1fr !important; gap: 48px !important; }
+  .contact-card { padding: 32px 24px !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+  .footer-brand { grid-column: 1 / -1 !important; }
+  .marquee-wrap { top: 70px !important; }
+  .product-card .img-wrap { height: 240px !important; }
+  #hero .hero-content { padding-bottom: 40px !important; }
+  .hero-h1 { font-size: clamp(30px, 8vw, 46px) !important; }
+}
+
+/* ---- 640 px ---- */
+@media (max-width: 640px) {
+  .hero-h1 { font-size: clamp(28px, 10vw, 42px) !important; }
+  .section-title { font-size: clamp(34px, 9vw, 58px) !important; }
+  .product-card .img-wrap { height: 300px !important; }
+  .catalog-item img { min-height: 300px; }
+}
+
+/* ---- 480 px ---- */
+@media (max-width: 480px) {
+  section { padding-left: 16px !important; padding-right: 16px !important; }
+  .hero-content { padding-left: 16px !important; padding-right: 16px !important; }
+  .hero-product-panel .hero-mini-photo { height: 55px !important; }
+  .hero-product-panel > div > div:first-child { gap: 5px !important; }
+  .hero-product-panel > div { padding: 8px !important; }
+  .catalog-masonry { columns: 2 140px !important; }
+  .catalog-masonry img { min-height: 160px !important; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .hero-title { font-size: clamp(36px, 10vw, 52px) !important; }
+  .section-title { font-size: clamp(28px, 8vw, 40px) !important; }
+  .btn-gold, .btn-outline { width: 100% !important; justify-content: center !important; }
+  .hero-cta { flex-direction: column !important; }
+}
