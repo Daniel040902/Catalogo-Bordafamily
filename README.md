@@ -1,13 +1,13 @@
-# TurismoHonduras - Catálogo de Viajes
+# BordaFamily - Catálogo de Productos Personalizados
 
-Agencia de viajes especializada en destinos de Honduras y el mundo.
+Landing page para BordaFamily, negocio especializado en productos personalizados: bordados, sublimación, DTF, estampados, uniformes, tazas, termos y más.
 
 ## Tecnologías
 
 - React 19
 - Vite 7
-- Tailwind CSS 4
 - React Router DOM
+- Lucide React (iconos)
 
 ## Instalación
 
@@ -21,14 +21,13 @@ npm run dev
 - `npm run dev` - Desarrollo
 - `npm run build` - Construcción
 - `npm run preview` - Vista previa
-- `npm run deploy` - Despliegue a GitHub Pages
 
 ## Estructura
 
 ```
 src/
-├── Pages/Inicio.jsx    # Página principal del catálogo
-├── components/         # Componentes reutilizables
-├── data/portfolioData.js  # Datos de destinos y servicios
-└── css/Inicio.css      # Estilos principales
+├── Pages/Inicio.jsx       # Página principal del catálogo
+├── css/Inicio.css          # Estilos principales
+├── data/inicioData.js      # Datos de productos y servicios
+└── routers/AppRouter.jsx   # Configuración de rutas
 ```
