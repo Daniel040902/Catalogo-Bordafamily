@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://borda-family.com/sitemap.xml
