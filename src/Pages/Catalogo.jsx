@@ -1,6 +1,6 @@
 // ============================================================
-// BordaFamily — Página de inicio
-// Componente principal con el hero, servicios, productos,
+// BordaFamily — Catálogo principal
+// Componente principal con hero, servicios, productos,
 // portafolio, contacto y footer.
 // ============================================================
 
@@ -21,7 +21,7 @@ import "../css/Inicio.css";
 // ============================================================
 // Componente principal
 // ============================================================
-export default function Inicio() {
+export default function Catalogo() {
   // Estado local
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -289,7 +289,7 @@ export default function Inicio() {
         <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 600, color: "var(--gold)", letterSpacing: "0.1em", marginBottom: 24 }}>
           BORDAFAMILY
         </div>
-        {[["hero", "Inicio"], ["productos", "Servicios"], ["catalogo", "Catálogo"], ["contacto", "Contacto"]].map(([id, label]) => (
+        {[["hero", "Catálogo"], ["productos", "Servicios"], ["catalogo", "Portafolio"], ["contacto", "Contacto"]].map(([id, label]) => (
           <button key={id} onClick={() => scrollTo(id)}
             style={{ background: "none", border: "none", cursor: "pointer", color: "var(--cream)", fontSize: 28, fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, letterSpacing: "0.05em" }}>
             {label}
@@ -753,7 +753,7 @@ export default function Inicio() {
             </div>
 
             {[
-              ["Navegación", [["hero", "Inicio"], ["productos", "Servicios"], ["catalogo", "Catálogo"], ["contacto", "Contacto"]]],
+              ["Navegación", [["hero", "Catálogo"], ["productos", "Servicios"], ["catalogo", "Portafolio"], ["contacto", "Contacto"]]],
               ["Contacto", [[null, "+505 8529 1916"], [null, "info@bordafamily.com"], [null, "León, Nicaragua"]]],
               ["Horario", [[null, "Lun–Vie: 9am–6pm"], [null, "Sábados: 9am–1pm"], [null, "Domingos: Cerrado"]]],
             ].map(([title, items]) => (

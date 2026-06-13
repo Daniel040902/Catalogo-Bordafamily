@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import Inicio from "../Pages/Inicio";
+import Catalogo from "../Pages/Catalogo";
 
 function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Inicio />} />
+      <Route path="/" element={<Catalogo />} />
     </Routes>
   );
 }
